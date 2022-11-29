@@ -1,1 +1,58 @@
-# balance-checker
+运行 `python main.py` 将输出每个币种在各个链上和地址上的余额，以及每个币种的总余额。如下：
+
+```
+Crypto Asset: USDT
+  Blockchain: Ethereum
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 84807430.377189
+    Balance of 0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4: 0.000000
+    Balance of 0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06: 223708130.217505
+    Balance of 0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215: 0.000000
+    Balance of 0xee5B5B923fFcE93A870B3104b7CA09c3db80047A: 180927042.010000
+  Blockchain: Avalanche
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 12505858.863388
+  Blockchain: Polygon
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 7292645.081462
+  Blockchain: Optimism
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 4607986.170988
+  Blockchain: Arbitrum
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 28643390.701483
+  Blockchain: Tron
+    Balance of TQVxjVy2sYt4at45ezD7VG4H6nQZtsua5C: 15816122.352257
+    Balance of TKFvdC4UC1vtCoHZgn8eviK34kormXaqJ7: 17277820.156708
+    Balance of TS9PDCB6vzLYDCPr5Nas2yzekdr7ot6dxn: 17178514.053538
+    Balance of TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa: 21856617.475577
+    Balance of TYgFxMvvu2VHFJnxQf8fh1qVAeMfXZJZ3K: 17428352.471128
+    Balance of TB1WQmj63bHV9Qmuhp39WABzutphMAetSc: 5000000.060000
+    Balance of TBpr1tQ5kvoKMv85XsCESVavYo4oZZdWpY: 3111486.992000
+    Balance of TXRRpT4BZ3dB5ShUQew2HXv1iK3Gg4MM9j: 9111486.993000
+  Total: 649272883.976223
+----------------
+Crypto Asset: USDC
+  Blockchain: Ethereum
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 55649511.553456
+    Balance of 0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4: 0.000000
+    Balance of 0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06: 16000000.100000
+    Balance of 0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215: 0.000000
+    Balance of 0xee5B5B923fFcE93A870B3104b7CA09c3db80047A: 115000000.000000
+  Blockchain: Avalanche
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 8694119.914528
+  Blockchain: Polygon
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 4861240.217105
+  Blockchain: Arbitrum
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 52456339.719815
+  Total: 252661211.504904
+----------------
+Crypto Asset: ETH
+  Blockchain: Ethereum
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 23673.504234
+    Balance of 0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4: 127693.956348
+    Balance of 0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06: 1.010000
+    Balance of 0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215: 0.000000
+    Balance of 0xee5B5B923fFcE93A870B3104b7CA09c3db80047A: 12000.929075
+  Blockchain: Optimism
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 1683.361695
+  Blockchain: Arbitrum
+    Balance of 0xf89d7b9c864f589bbF53a82105107622B35EaA40: 2196.467794
+  Total: 167249.229146
+----------------
+```
