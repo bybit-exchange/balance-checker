@@ -25,7 +25,20 @@ ADDRESSES = {
             '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'       
         ],
     },
-    "BSC": {},
+    "BSC": {
+        "USDT": [
+            '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
+            '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'
+        ],
+        "ETH": [
+            '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
+            '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'
+        ],
+        "USDC": [
+            '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
+            '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'
+        ]
+    },
     "Avalanche": {
         "USDT": [
             "0xf89d7b9c864f589bbF53a82105107622B35EaA40"
@@ -81,8 +94,69 @@ ADDRESSES = {
 HEIGHT = {
     "Ethereum": 16074060,
     "Avalanche": 22979368,
+    "BSC": 23468729,
     "Polygon": 36162107,
     "Optimism": 43406017,
     "Arbitrum": 41837383,
     "Tron": 46366890
+}
+
+RPC = {
+    "Ethereum": {
+        "url": "https://mainnet.infura.io/v3/46b5dade97e84db6953f588a576556d4",
+        "headers": {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+        },
+    },
+    "Avalanche": {
+        "url": "https://avalanche-mainnet.infura.io/v3/aac8ea61932e408f88b984bc2708c3ae",
+        "headers": {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+        },
+    },
+    "BSC": {
+        "url": "https://rpc.ankr.com/bsc",
+        "headers": {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+        }
+    },
+    "Polygon": {
+        "url": "https://polygon-rpc.com",
+        "headers": {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+        },
+    },
+    "Optimism": {
+        "url": "https://mainnet.optimism.io",
+        "headers": {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+        },
+    },
+    "Arbitrum": {
+        "url": "https://arb1.arbitrum.io/rpc",
+        "headers": {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+        },
+    },
+    "Tron": {
+        "url": "https://www.oklink.com/api/v5/explorer/block/address-balance-history",
+        "headers": {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': '*/*',
+            'Ok-Access-Key': 'e1fae3b0-07c3-4a5a-a29f-8cd55181fff3',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+        }
+    }
 }

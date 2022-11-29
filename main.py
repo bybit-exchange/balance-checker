@@ -1,17 +1,11 @@
 import urllib.request
 import urllib.parse
 import json
-from config import ADDRESSES, HEIGHT
+from config import ADDRESSES, HEIGHT, RPC
 
 CHAIN_INFO = [
     {
         "name": "Ethereum",
-        "url": "https://mainnet.infura.io/v3/46b5dade97e84db6953f588a576556d4",
-        "headers": {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
-        },
         "assets": {
             "USDT": {
                 "contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
@@ -29,12 +23,6 @@ CHAIN_INFO = [
     },
     {
         "name": "Avalanche",
-        "url": "https://avalanche-mainnet.infura.io/v3/aac8ea61932e408f88b984bc2708c3ae",
-        "headers": {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
-        },
         "assets": {
             "USDT": {
                 "contract": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
@@ -47,13 +35,24 @@ CHAIN_INFO = [
         }
     },
     {
+        "name": "BSC",
+        "assets": {
+            "USDT": {
+                "contract": "0x55d398326f99059fF775485246999027B3197955",
+                "decimals": 18
+            },
+            "USDC": {
+                'contract': '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+                'decimals': 18
+            },
+            "ETH": {
+                'contract': '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
+                'decimals': 18
+            }
+        }
+    },
+    {
         "name": "Polygon",
-        "url": "https://polygon-rpc.com",
-        "headers": {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
-        },
         "assets": {
             "USDT": {
                 "contract": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
@@ -67,12 +66,6 @@ CHAIN_INFO = [
     },
     {
         "name": "Optimism",
-        "url": "https://mainnet.optimism.io",
-        "headers": {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
-        },
         "assets": {
             "ETH": {
                 "contract": None,
@@ -86,12 +79,6 @@ CHAIN_INFO = [
     },
     {
         "name": "Arbitrum",
-        "url": "https://arb1.arbitrum.io/rpc",
-        "headers": {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
-        },
         "assets": {
             "ETH": {
                 "contract": None,
@@ -122,6 +109,8 @@ CHAIN_INFO = [
 for chain in CHAIN_INFO:
     chain['addresses'] = ADDRESSES[chain['name']]
     chain['height'] = HEIGHT[chain['name']]
+    chain['url'] = RPC[chain['name']]['url']
+    chain['headers'] = RPC[chain['name']]['headers']
 
 def queryTokenBalance(rpcUrl: str, contract: str, address: str, height: int, headers = dict()):
     address = address.lower()
@@ -162,7 +151,7 @@ def queryNativeBalance(rpcUrl: str, address: str, height: int, headers = dict())
     return int(result['result'], 16)
 
 
-def queryTRC20Balance(rpcUrl: str, contract: str, address: str, height: int, decimals: int):
+def queryTRC20Balance(rpcUrl: str, contract: str, address: str, height: int, decimals: int, headers = dict()):
     params = {
         'address': address,
         'chainShortName': 'tron',
@@ -171,12 +160,7 @@ def queryTRC20Balance(rpcUrl: str, contract: str, address: str, height: int, dec
     }
 
     url_values = urllib.parse.urlencode(params)
-    request = urllib.request.Request(url=rpcUrl + '?' + url_values, headers={
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': '*/*',
-        'Ok-Access-Key': 'e1fae3b0-07c3-4a5a-a29f-8cd55181fff3',
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
-    })
+    request = urllib.request.Request(url=rpcUrl + '?' + url_values, headers=headers)
     response = urllib.request.urlopen(request).read()
     result = json.loads(response)
     return float(result['data'][0]['balance']) * 10 ** decimals
@@ -189,7 +173,7 @@ for chain in CHAIN_INFO:
         asset = chain['assets'][assetName]
         for address in chain['addresses'][assetName]:
             if chain['name'] == 'Tron':
-                balance = queryTRC20Balance(chain['url'], chain['assets'][assetName]['contract'], address, chain['height'], chain['assets'][assetName]['decimals'])
+                balance = queryTRC20Balance(chain['url'], chain['assets'][assetName]['contract'], address, chain['height'], chain['assets'][assetName]['decimals'], chain['headers'])
             elif asset['contract'] is not None:
                 balance = queryTokenBalance(chain['url'], chain['assets'][assetName]['contract'], address, chain['height'], chain['headers'])
             else:
