@@ -18,6 +18,10 @@ CHAIN_INFO = [
             "ETH": {
                 "contract": None,
                 "decimals": 18
+            },
+            "BUSD": {
+                'contract': '0x4Fabb145d64652a948d72533023f6E7A623C7C53',
+                'decimals': 18
             }
         }
     },
@@ -47,6 +51,10 @@ CHAIN_INFO = [
             },
             "ETH": {
                 'contract': '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
+                'decimals': 18
+            },
+            "BUSD": {
+                'contract': '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
                 'decimals': 18
             }
         }
