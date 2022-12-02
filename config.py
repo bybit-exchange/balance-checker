@@ -23,13 +23,6 @@ ADDRESSES = {
             '0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06',
             '0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215',
             '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'       
-        ],
-        'BUSD': [
-            '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
-            '0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4',
-            '0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06',
-            '0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215',
-            '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'       
         ]
     },
     "BSC": {
@@ -42,10 +35,6 @@ ADDRESSES = {
             '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'       
         ],
         'ETH': [
-            '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
-            '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'       
-        ],
-        'BUSD': [
             '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
             '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'       
         ]
