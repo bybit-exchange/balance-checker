@@ -105,13 +105,13 @@ ADDRESSES = {
 每个链的截止高度，检查指定高度的链上地址余额
 '''
 HEIGHT = {
-    "Ethereum": 16074060,
-    "Avalanche": 22979368,
-    "BSC": 23468729,
-    "Polygon": 36162107,
-    "Optimism": 43406017,
-    "Arbitrum": 41837383,
-    "Tron": 46366890
+    "Ethereum": 16116070,
+    "Avalanche": 23229463,
+    "BSC": 23633686,
+    "Polygon": 36440286,
+    "Optimism": 45499262,
+    "Arbitrum": 43708680,
+    "Tron": 46541644
 }
 
 RPC = {
@@ -156,7 +156,7 @@ RPC = {
         },
     },
     "Arbitrum": {
-        "url": "https://arb1.arbitrum.io/rpc",
+        "url": "https://rpc.ankr.com/arbitrum",
         "headers": {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
