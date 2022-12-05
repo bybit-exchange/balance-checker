@@ -3,6 +3,88 @@ import urllib.parse
 import json
 from config import ADDRESSES, HEIGHT, RPC
 
+COIN_INFO = [
+    {
+        "name": "USDT",
+        "chains": {
+            'Ethereum': {
+                'contract': '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+                'decimals': 6
+            },
+            'Avalanche': {
+                'contract': '0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7',
+                'decimals': 6
+            },
+            'BSC': {
+                'contract': '0x55d398326f99059fF775485246999027B3197955',
+                'decimals': 18
+            },
+            'Polygon': {
+                'contract': '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
+                'decimals': 6
+            },
+            'Optimism': {
+                'contract': '0x94b008aA00579c1307B0EF2c499aD98a8ce58e58',
+                'decimals': 6
+            },
+            'Arbitrum': {
+                'contract': '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
+                'decimals': 6
+            },
+            'Tron': {
+                'contract': 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+                'decimals': 6
+            }
+        }
+    },
+    {
+        "name": "USDC",
+        "chains": {
+            'Ethereum': {
+                'contract': '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+                'decimals': 6
+            },
+            'Avalanche': {
+                'contract': '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
+                'decimals': 6
+            },
+            'BSC': {
+                'contract': '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+                'decimals': 18
+            },
+            'Polygon': {
+                'contract': '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+                'decimals': 6
+            },
+            'Arbitrum': {
+                'contract': '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8',
+                'decimals': 6
+            }
+        }
+    },
+    {
+        "name": "ETH",
+        "chains": {
+            'Ethereum': {
+                'contract': None,
+                'decimals': 18
+            },
+            'BSC': {
+                'contract': '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
+                'decimals': 18
+            },
+            'Optimism': {
+                'contract': None,
+                'decimals': 18
+            },
+            'Arbitrum': {
+                'contract': None,
+                'decimals': 18
+            }
+        }
+    },
+]
+
 CHAIN_INFO = [
     {
         "name": "Ethereum",
@@ -168,6 +250,27 @@ def queryTRC20Balance(rpcUrl: str, contract: str, address: str, height: int, dec
 
 balanceMap = {}
 
+for coin in COIN_INFO:
+    assetName = coin['name']
+    print('Crypto Asset: %s' % assetName)
+    total = 0
+    for chainName, chain in coin['chains'].items():
+        print('  Blockchain: %s' % chainName)
+        for address in ADDRESSES[chainName][assetName]:
+            if chainName == 'Tron':
+                balance = queryTRC20Balance(RPC[chainName]['url'], chain['contract'], address, HEIGHT[chainName], chain['decimals'], RPC[chainName]['headers'])
+            elif chain['contract'] is not None:
+                balance = queryTokenBalance(RPC[chainName]['url'], chain['contract'], address, HEIGHT[chainName], RPC[chainName]['headers'])
+            else:
+                balance = queryNativeBalance(RPC[chainName]['url'], address, HEIGHT[chainName], RPC[chainName]['headers'])
+        
+            balance = balance / 10 ** chain['decimals']
+            total += balance
+            print('    Balance of %s: %f' % (address, balance))
+    print('  Total: %f' % total)
+    print('----------------')
+
+'''
 for chain in CHAIN_INFO:
     for assetName in chain['assets'].keys():
         asset = chain['assets'][assetName]
@@ -196,3 +299,4 @@ for assetName, asset in balanceMap.items():
             total += balance
     print('  Total: %f' % total)
     print('----------------')
+'''
