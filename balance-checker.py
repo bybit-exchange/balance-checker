@@ -257,16 +257,19 @@ for coin in COIN_INFO:
     for chainName, chain in coin['chains'].items():
         print('  Blockchain: %s' % chainName)
         for address in ADDRESSES[chainName][assetName]:
-            if chainName == 'Tron':
-                balance = queryTRC20Balance(RPC[chainName]['url'], chain['contract'], address, HEIGHT[chainName], chain['decimals'], RPC[chainName]['headers'])
-            elif chain['contract'] is not None:
-                balance = queryTokenBalance(RPC[chainName]['url'], chain['contract'], address, HEIGHT[chainName], RPC[chainName]['headers'])
-            else:
-                balance = queryNativeBalance(RPC[chainName]['url'], address, HEIGHT[chainName], RPC[chainName]['headers'])
-        
-            balance = balance / 10 ** chain['decimals']
-            total += balance
-            print('    Balance of %s: %f' % (address, balance))
+            try:
+                if chainName == 'Tron':
+                    balance = queryTRC20Balance(RPC[chainName]['url'], chain['contract'], address, HEIGHT[chainName], chain['decimals'], RPC[chainName]['headers'])
+                elif chain['contract'] is not None:
+                    balance = queryTokenBalance(RPC[chainName]['url'], chain['contract'], address, HEIGHT[chainName], RPC[chainName]['headers'])
+                else:
+                    balance = queryNativeBalance(RPC[chainName]['url'], address, HEIGHT[chainName], RPC[chainName]['headers'])
+            
+                balance = balance / 10 ** chain['decimals']
+                total += balance
+                print('    Balance of %s: %f' % (address, balance))
+            except Exception:
+                print('    Cannot get balance from Node RPC for %s. You can modify RPC variable in config.py to use another node.' % chainName)
     print('  Total: %f' % total)
     print('----------------')
 

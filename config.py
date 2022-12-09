@@ -105,13 +105,13 @@ ADDRESSES = {
 每个链的截止高度，检查指定高度的链上地址余额
 '''
 HEIGHT = {
-    "Ethereum": 16116070,
-    "Avalanche": 23229463,
-    "BSC": 23633686,
-    "Polygon": 36440286,
-    "Optimism": 45499262,
-    "Arbitrum": 43708680,
-    "Tron": 46541644
+    "Ethereum": 16137464,
+    "Avalanche": 23355434,
+    "BSC": 23718015,
+    "Polygon": 36562802,
+    "Optimism": 46581410,
+    "Arbitrum": 44502339,
+    "Tron": 46627988
 }
 
 RPC = {
@@ -132,7 +132,7 @@ RPC = {
         },
     },
     "BSC": {
-        "url": "https://rpc.ankr.com/bsc",
+        "url": "https://powerful-powerful-fire.bsc.discover.quiknode.pro/d73fd718a3bbeeb3a1ee1a7dad328efb2bb8a675/",
         "headers": {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
