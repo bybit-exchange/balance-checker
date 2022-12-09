@@ -269,7 +269,7 @@ for coin in COIN_INFO:
                 total += balance
                 print('    Balance of %s: %f' % (address, balance))
             except Exception:
-                print('    Cannot get balance from Node RPC for %s. You can modify RPC variable in config.py to use another node.' % chainName)
+                print('    Cannot get balance from Node RPC for %s. You can modify \'RPC\' variable in config.py to use another node.' % chainName)
     print('  Total: %f' % total)
     print('----------------')
 
