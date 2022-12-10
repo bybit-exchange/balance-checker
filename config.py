@@ -7,21 +7,18 @@ ADDRESSES = {
             '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
             '0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4',
             '0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06',
-            '0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215',
             '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A',
         ],
         'USDC': [
             '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
             '0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4',
             '0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06',
-            '0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215',
             '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A'       
         ],
         'ETH': [
             '0xf89d7b9c864f589bbF53a82105107622B35EaA40',
             '0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4',
             '0xA7A93fd0a276fc1C0197a5B5623eD117786eeD06',
-            '0xe1ab8c08294F8ee707D4eFa458eaB8BbEeB09215',
             '0xee5B5B923fFcE93A870B3104b7CA09c3db80047A',
        ]
     },
@@ -105,13 +102,13 @@ ADDRESSES = {
 每个链的截止高度，检查指定高度的链上地址余额
 '''
 HEIGHT = {
-    "Ethereum": 16137464,
-    "Avalanche": 23355434,
-    "BSC": 23718015,
-    "Polygon": 36562802,
-    "Optimism": 46581410,
-    "Arbitrum": 44502339,
-    "Tron": 46627988
+    "Ethereum": 16151774,
+    "Avalanche": 23439987,
+    "BSC": 23774595,
+    "Polygon": 36644176,
+    "Optimism": 47356500,
+    "Arbitrum": 44989109,
+    "Tron": 46685555
 }
 
 RPC = {
