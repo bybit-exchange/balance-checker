@@ -113,7 +113,7 @@ HEIGHT = {
 
 RPC = {
     "Ethereum": {
-        "url": "https://mainnet.infura.io/v3/46b5dade97e84db6953f588a576556d4",
+        "url": "https://rpc.tenderly.co/fork/2cbee0f9-dd32-4d6b-9428-bd86928baa97",
         "headers": {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
