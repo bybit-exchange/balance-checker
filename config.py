@@ -113,7 +113,7 @@ HEIGHT = {
 
 RPC = {
     "Ethereum": {
-        "url": "https://mainnet.infura.io/v3/46b5dade97e84db6953f588a576556d4",
+        "url": "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID",
         "headers": {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -121,7 +121,7 @@ RPC = {
         },
     },
     "Avalanche": {
-        "url": "https://avalanche-mainnet.infura.io/v3/aac8ea61932e408f88b984bc2708c3ae",
+        "url": "https://avalanche-mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID",
         "headers": {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -129,7 +129,7 @@ RPC = {
         },
     },
     "BSC": {
-        "url": "https://powerful-powerful-fire.bsc.discover.quiknode.pro/d73fd718a3bbeeb3a1ee1a7dad328efb2bb8a675/",
+        "url": "https://bsc-dataseed.binance.org/",
         "headers": {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -165,7 +165,7 @@ RPC = {
         "headers": {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': '*/*',
-            'Ok-Access-Key': 'e1fae3b0-07c3-4a5a-a29f-8cd55181fff3',
+            'Ok-Access-Key': 'YOUR_OKLINK_API_KEY',
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
         }
     }
